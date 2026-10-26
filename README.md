@@ -24,7 +24,9 @@ recompile. That's the trade-off for the low footprint.
 - **Go 1.21+** — that's the real minimum, verified against the language features
   and dependencies actually used.
 - A compositor with `wlr-layer-shell`: sway/swayfx, niri or Hyprland.
-- A common sans font: Noto Sans, DejaVu Sans, Liberation or Adwaita.
+- A Nerd Font for the default panels — JetBrainsMono NF is tried first, the icons
+  are Font Awesome glyphs. Pick any sans font and swap the glyphs if you don't
+  want one.
 
 Only the widgets you actually use need their tools:
 
