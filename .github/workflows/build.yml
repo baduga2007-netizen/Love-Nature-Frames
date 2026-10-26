@@ -1,0 +1,36 @@
+name: build
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        # 1.21 — реальный минимум для кода; stable — на будущее
+        go: ["1.21", "stable"]
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-go@v5
+        with:
+          go-version: ${{ matrix.go }}
+
+      - name: gofmt
+        run: |
+          diff=$(gofmt -l .)
+          if [ -n "$diff" ]; then
+            echo "не отформатировано:"
+            echo "$diff"
+            exit 1
+          fi
+
+      - run: go vet ./...
+
+      - run: go build -o lnf .
+
+      - run: go test ./...

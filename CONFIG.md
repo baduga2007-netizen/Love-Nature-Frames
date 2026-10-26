@@ -441,7 +441,7 @@ niri зовут `vol.sh`: он меняет громкость и разово �
 
 ```sh
 # keybinds.kdl
-XF86AudioRaiseVolume { spawn "/home/larper/LNF/vol.sh" "up"; }
+XF86AudioRaiseVolume { spawn-sh "~/LNF/vol.sh up"; }
 # vol.sh делает wpctl + `lnf.sh set vol "$(osd.sh)"`
 ```
 
