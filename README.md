@@ -1,5 +1,7 @@
 # LNF — Love Nature Frames
 
+[![build](https://github.com/baduga2007-netizen/Love-Nature-Frames/actions/workflows/build.yml/badge.svg)](https://github.com/baduga2007-netizen/Love-Nature-Frames/actions/workflows/build.yml)
+
 LNF is a Wayland layer-shell panel written in pure Go. It doesn't replace your
 window manager — it draws the bar and the widgets on top of one (sway/swayfx,
 niri, Hyprland).
