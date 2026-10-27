@@ -1,6 +1,6 @@
 module lnf
 
-go 1.21
+go 1.26.0
 
 require (
 	golang.org/x/image v0.18.0

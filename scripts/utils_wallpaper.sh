@@ -37,7 +37,7 @@ if [ -n "$WALLS" ] && [ -d "$WALLS" ]; then
 fi
 
 # прочие утилиты
-printf '%s\t%s\t%s\t\n' "Stop wallpaper" 'pkill -x swaybg; pkill -x awww; pkill -x swww-daemon' "$g_stop"
+printf '%s\t%s\t%s\t\n' "Stop wallpaper" 'pkill -x swaybg; pkill -x swww-daemon' "$g_stop"
 printf '%s\t%s\t%s\t\n' "Mute sound" 'wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle' "$g_mute"
 printf '%s\t%s\t%s\t\n' "Screenshot" "$HOME/LNF/wm.sh screenshot" "$g_shot"
 printf '%s\t%s\t%s\t\n' "Lock" "$HOME/LNF/wm.sh lock" "$g_lock"
