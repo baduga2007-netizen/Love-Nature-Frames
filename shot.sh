@@ -1,1 +1,0 @@
-scripts/screenshot_zone.sh

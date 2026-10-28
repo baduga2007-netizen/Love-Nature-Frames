@@ -32,13 +32,13 @@ if [ -n "$WALLS" ] && [ -d "$WALLS" ]; then
             elif [ "${f##*.}" = "png" ]; then
                 icon="$f"
             fi
-            printf '%s\t%s\t%s\t\n' "$(basename "$f")" "$HOME/LNF/setwall.sh \"$f\"" "$icon"
+            printf '%s\t%s\t%s\t\n' "$(basename "$f")" "$HOME/LNF/scripts/set_wallpaper.sh \"$f\"" "$icon"
         done
 fi
 
 # прочие утилиты
 printf '%s\t%s\t%s\t\n' "Stop wallpaper" 'printf "quit\n" > "${XDG_RUNTIME_DIR:-/tmp}/lnf-wallpaper.fifo"' "$g_stop"
 printf '%s\t%s\t%s\t\n' "Mute sound" 'wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle' "$g_mute"
-printf '%s\t%s\t%s\t\n' "Screenshot" "$HOME/LNF/wm.sh screenshot" "$g_shot"
-printf '%s\t%s\t%s\t\n' "Lock" "$HOME/LNF/wm.sh lock" "$g_lock"
-printf '%s\t%s\t%s\t\n' "Restart LNF" "$HOME/LNF/restart.sh" "$g_relaunch"
+printf '%s\t%s\t%s\t\n' "Screenshot" "$HOME/LNF/scripts/wm_control.sh screenshot" "$g_shot"
+printf '%s\t%s\t%s\t\n' "Lock" "$HOME/LNF/scripts/wm_control.sh lock" "$g_lock"
+printf '%s\t%s\t%s\t\n' "Restart LNF" "$HOME/LNF/scripts/restart_session.sh" "$g_relaunch"

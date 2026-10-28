@@ -1,1 +1,0 @@
-scripts/workspace_status.sh

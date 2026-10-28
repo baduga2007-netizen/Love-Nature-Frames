@@ -302,9 +302,9 @@ func panelConfig() []*Config {
 	ws.FontSize = 11
 	ws.HoverScale = 1.08
 	ws.ClickScale = 0.1
-	ws.ClickExec = "$HOME/LNF/wm.sh ws-down"
-	ws.WheelUp = "$HOME/LNF/wm.sh ws-down"
-	ws.WheelDown = "$HOME/LNF/wm.sh ws-up"
+	ws.ClickExec = "$HOME/LNF/scripts/wm_control.sh ws-down"
+	ws.WheelUp = "$HOME/LNF/scripts/wm_control.sh ws-down"
+	ws.WheelDown = "$HOME/LNF/scripts/wm_control.sh ws-up"
 	put(ws, wsX, wsY, 36, 36)
 	addC(ws)
 
@@ -314,10 +314,10 @@ func panelConfig() []*Config {
 		name, glyph, cmd string
 		danger           bool
 	}{
-		{"s-lock", "\uf023", "$HOME/LNF/wm.sh lock", false},
-		{"s-suspend", "\uf186", "$HOME/LNF/power.sh suspend", false},
-		{"s-logout", "\uf08b", "$HOME/LNF/wm.sh logout", false},
-		{"s-off", "\uf011", "$HOME/LNF/power.sh poweroff", true},
+		{"s-lock", "\uf023", "$HOME/LNF/scripts/wm_control.sh lock", false},
+		{"s-suspend", "\uf186", "$HOME/LNF/scripts/power_control.sh suspend", false},
+		{"s-logout", "\uf08b", "$HOME/LNF/scripts/wm_control.sh logout", false},
+		{"s-off", "\uf011", "$HOME/LNF/scripts/power_control.sh poweroff", true},
 	}
 	for i, s := range sessions {
 		l := newLayer(s.name)
@@ -367,8 +367,8 @@ func panelConfig() []*Config {
 	}
 
 	cw.Polls = []*Poll{
-		{Name: "wsnum", Command: "$HOME/LNF/ws.sh | awk '{print $2}'", Interval: time.Second},
-		{Name: "sys", Command: "$HOME/LNF/sys.sh", Interval: 3 * time.Second},
+		{Name: "wsnum", Command: "$HOME/LNF/scripts/workspace_status.sh | awk '{print $2}'", Interval: time.Second},
+		{Name: "sys", Command: "$HOME/LNF/scripts/sys_resources.sh", Interval: 3 * time.Second},
 	}
 
 	// ============================================================
@@ -430,7 +430,7 @@ func panelConfig() []*Config {
 	// Буфер обмена: «очистить всё» + записи, ПКМ удаляет запись.
 	drawer("clip", "Буфер обмена", 360)
 	clipMenu := newLayer("clip-menu")
-	clipMenu.MenuCmd = "$HOME/LNF/clip.sh"
+	clipMenu.MenuCmd = "$HOME/LNF/scripts/clipboard_history.sh"
 	clipMenu.RowH = 40
 	clipMenu.Pad = 12
 	clipMenu.FontSize = 12
@@ -445,7 +445,7 @@ func panelConfig() []*Config {
 	// Обои: каталог картинок миниатюрами + пара утилит (utils.sh).
 	drawer("walls", "Обои", 360)
 	wallMenu := newLayer("walls-menu")
-	wallMenu.MenuCmd = "$HOME/LNF/utils.sh"
+	wallMenu.MenuCmd = "$HOME/LNF/scripts/utils_wallpaper.sh"
 	wallMenu.RowH = 44
 	wallMenu.Pad = 12
 	wallMenu.FontSize = 12
@@ -472,12 +472,12 @@ func panelConfig() []*Config {
 
 	setSec := func(sec int) string {
 		return fmt.Sprintf(`d="${XDG_CACHE_HOME:-$HOME/.cache}/lnf"; mkdir -p "$d"; `+
-			`printf '%%d с' %d > "$d/shot.sec"; "$HOME/LNF/lnf.sh" set shotsec '%d с'`,
+			`printf '%%d с' %d > "$d/shot.sec"; "$HOME/LNF/scripts/lnf_fifo.sh" set shotsec '%d с'`,
 			sec, sec)
 	}
 	setZone := func(key, label string) string {
 		return fmt.Sprintf(`d="${XDG_CACHE_HOME:-$HOME/.cache}/lnf"; mkdir -p "$d"; `+
-			`printf '%%s' '%s' > "$d/shot.zone"; "$HOME/LNF/lnf.sh" set shotzone '%s'`,
+			`printf '%%s' '%s' > "$d/shot.zone"; "$HOME/LNF/scripts/lnf_fifo.sh" set shotzone '%s'`,
 			key, label)
 	}
 	chip := func(name, label, action string, x, y, w, h float64) {
@@ -527,7 +527,7 @@ func panelConfig() []*Config {
 	goShot.FontSize = 14
 	goShot.HoverScale = 1.03
 	goShot.ClickScale = 0.06
-	goShot.ClickExec = "$HOME/LNF/shot.sh"
+	goShot.ClickExec = "$HOME/LNF/scripts/screenshot_zone.sh"
 	goShot.ShowWhen = "shot"
 	goShot.Appear, goShot.AppearDY = ms(animMid), 14
 	pput(goShot, 32, 220, 320, 48)
@@ -612,7 +612,7 @@ func panelConfig() []*Config {
 	addA(asearch)
 
 	amenu := newLayer("apps-menu")
-	amenu.MenuCmd = "$HOME/LNF/drun.sh"
+	amenu.MenuCmd = "$HOME/LNF/scripts/app_launcher.sh"
 	amenu.Search = true
 	amenu.RowH = 46
 	amenu.Pad = 14

@@ -34,7 +34,7 @@ detect_wm() {
 wm=$(detect_wm)
 
 notify() {
-    [ -x "$HOME/LNF/lnf.sh" ] && "$HOME/LNF/lnf.sh" notify "$*" 2>/dev/null
+    [ -x "$HOME/LNF/scripts/lnf_fifo.sh" ] && "$HOME/LNF/scripts/lnf_fifo.sh" notify "$*" 2>/dev/null
 }
 
 copy_png() {

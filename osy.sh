@@ -1,1 +1,0 @@
-scripts/osd_display.sh

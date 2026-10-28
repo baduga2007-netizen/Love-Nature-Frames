@@ -92,7 +92,7 @@ build() {
 
             img=$(icon_path "$icon")
             if [ -n "$img" ]; then
-                printf '%s\t%s\t%s\t\n' "$name" "$HOME/LNF/wm.sh spawn $exec" "$img"
+                printf '%s\t%s\t%s\t\n' "$name" "$HOME/LNF/scripts/wm_control.sh spawn $exec" "$img"
                 continue
             fi
 
@@ -113,7 +113,7 @@ build() {
                 *network*|*wifi*|*vpn*|*ethernet*)                                g='\357\207\253'; c='#34A853' ;;
                 *)                                                                g='\357\200\211'; c='#34A853' ;;
             esac
-            printf '%s\t%s\t%b\t%s\n' "$name" "$HOME/LNF/wm.sh spawn $exec" "$g" "$c"
+            printf '%s\t%s\t%b\t%s\n' "$name" "$HOME/LNF/scripts/wm_control.sh spawn $exec" "$g" "$c"
         done
     done
 }

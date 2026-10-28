@@ -76,9 +76,9 @@ The shell scripts talk to the running panel through a FIFO, so you can poke it
 by hand:
 
 ```sh
-~/LNF/lnf.sh apps      # open the app launcher
-~/LNF/lnf.sh notify hi # show a message in the OSD
-~/LNF/lnf.sh set vol "██░ 45%"
+~/LNF/scripts/lnf_fifo.sh apps      # open the app launcher
+~/LNF/scripts/lnf_fifo.sh notify hi # show a message in the OSD
+~/LNF/scripts/lnf_fifo.sh set vol "██░ 45%"
 ```
 
 Render the scenes to PNG without a compositor:

@@ -281,7 +281,7 @@ cfg.Polls = []*Poll{
 `●` активный, `○` остальные):
 
 ```go
-cfg.Polls = []*Poll{{Name: "ws", Command: "$HOME/LNF/ws.sh", Interval: time.Second}}
+cfg.Polls = []*Poll{{Name: "ws", Command: "$HOME/LNF/scripts/workspace_status.sh", Interval: time.Second}}
 
 ws := newLayer("ws")
 ws.Text, ws.TextFG, ws.HasTextFG = "{poll:ws}", onVar, true
@@ -339,7 +339,7 @@ Z                — замкнуть контур
 
 ```go
 apps.Layer, apps.Keyboard = "overlay", 1  // overlay + клавиатура для поиска
-grid.MenuCmd   = "$HOME/LNF/drun.sh"
+grid.MenuCmd   = "$HOME/LNF/scripts/app_launcher.sh"
 grid.Grid      = true                     // режим сетки (вместо списка строк)
 grid.Cols      = 8                        // максимум столбцов
 grid.CellW, grid.CellH = 150, 132         // CellW — плотность, CellH — высота
@@ -377,7 +377,7 @@ cfg.GroupsOn    = []string{"apps"} // раскрыт сразу при стар�
 История буфера — тоже пункт меню, просто другая команда:
 
 ```go
-clip.MenuCmd = "$HOME/LNF/clip.sh"
+clip.MenuCmd = "$HOME/LNF/scripts/clipboard_history.sh"
 clip.ShowWhen = "clip"
 ```
 
@@ -396,12 +396,12 @@ wl-paste --type text  --watch cliphist store &
 wl-paste --type image --watch cliphist store &
 ```
 
-## 9b. Утилиты и обои (`utils.sh`, `setwall.sh`)
+## 9b. Утилиты и обои (`scripts/utils_wallpaper.sh`, `scripts/set_wallpaper.sh`)
 
 Ящик «утилиты» — тоже `MenuCmd`, но список собирает `utils.sh`:
 
 ```go
-utils.MenuCmd = "$HOME/LNF/utils.sh"
+utils.MenuCmd = "$HOME/LNF/scripts/utils_wallpaper.sh"
 utils.ShowWhen = "utils"
 ```
 
@@ -454,7 +454,7 @@ niri зовут `vol.sh`: он меняет громкость и разово �
 
 ```sh
 # keybinds.kdl
-XF86AudioRaiseVolume { spawn-sh "~/LNF/vol.sh up"; }
+XF86AudioRaiseVolume { spawn-sh "~/LNF/scripts/volume_control.sh up"; }
 # vol.sh делает wpctl + `lnf.sh set vol "$(osd.sh)"`
 ```
 

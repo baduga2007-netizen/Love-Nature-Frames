@@ -29,10 +29,10 @@ case "$zone" in
     *) zone=full ;;
 esac
 
-notify() { [ -x "$HOME/LNF/lnf.sh" ] && "$HOME/LNF/lnf.sh" notify "$*" 2>/dev/null; }
+notify() { [ -x "$HOME/LNF/scripts/lnf_fifo.sh" ] && "$HOME/LNF/scripts/lnf_fifo.sh" notify "$*" 2>/dev/null; }
 
 # карточка не должна висеть в кадре — закрываем её до задержки
-[ -x "$HOME/LNF/lnf.sh" ] && "$HOME/LNF/lnf.sh" toggle shot 2>/dev/null
+[ -x "$HOME/LNF/scripts/lnf_fifo.sh" ] && "$HOME/LNF/scripts/lnf_fifo.sh" toggle shot 2>/dev/null
 
 [ "$sec" -gt 0 ] 2>/dev/null && sleep "$sec"
 
