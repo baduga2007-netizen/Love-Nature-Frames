@@ -10,3 +10,8 @@
 # отладочный вывод (LNF_DUMP=...)
 /out.png
 *.log
+
+# демон обоев: кэш и служебные файлы
+wallpaper/cache/
+nohup.out
+*.lock

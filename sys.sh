@@ -1,0 +1,1 @@
+scripts/sys_resources.sh

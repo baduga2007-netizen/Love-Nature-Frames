@@ -35,7 +35,7 @@ Only the widgets you actually use need their tools:
 | `grim`, `slurp` | screenshot widget |
 | `wl-clipboard` (`wl-copy`, `wl-paste`) | clipboard widget |
 | `wpctl` (PipeWire) | volume OSD |
-| `swaybg` / `swww` / `awww` | wallpaper switcher |
+| — | обои рисует сам `lnf wallpaperd` (layer-shell + wl_shm) |
 | `swaylock` | lock action |
 | `jq` | exact window geometry for screenshots (optional) |
 

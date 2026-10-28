@@ -1,0 +1,1 @@
+scripts/clipboard_history.sh

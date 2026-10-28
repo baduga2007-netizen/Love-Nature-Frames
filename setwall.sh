@@ -1,0 +1,1 @@
+scripts/set_wallpaper.sh

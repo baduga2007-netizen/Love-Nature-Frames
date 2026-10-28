@@ -1,0 +1,1 @@
+scripts/wm_control.sh

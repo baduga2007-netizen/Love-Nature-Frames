@@ -25,9 +25,10 @@ if command -v sv >/dev/null 2>&1; then
     fi
 fi
 
-# Ручной перезапуск
+# Ручной перезапуск: панель + демон обоев (оба называются lnf)
 pkill -x lnf 2>/dev/null
 sleep 0.3
 cd "$HOME/LNF" || exit 1
 setsid ./lnf >/dev/null 2>&1 &
+setsid ./lnf wallpaperd >/dev/null 2>&1 &
 exit 0

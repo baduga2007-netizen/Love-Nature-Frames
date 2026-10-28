@@ -2621,6 +2621,24 @@ func blend(a, b color.NRGBA, t float64) color.NRGBA {
 
 func main() {
 	trimMemory()
+
+	// Своя программа обоев: собственный layer-shell клиент, без awww/swaybg/swww.
+	if len(os.Args) > 1 {
+		switch os.Args[1] {
+		case "wallpaper":
+			if err := wpClient(os.Args[2:]); err != nil {
+				fmt.Fprintln(os.Stderr, "lnf wallpaper:", err)
+				os.Exit(1)
+			}
+			return
+		case "wallpaperd":
+			if err := wpRun(os.Args[2:]); err != nil {
+				fmt.Fprintln(os.Stderr, "lnf wallpaperd:", err)
+				os.Exit(1)
+			}
+			return
+		}
+	}
 	// Панель описывается прямо в Go (panel.go). Движок получает готовые
 	// сцены: одно соединение с компоновщиком, одна поверхность на сцену.
 	cfgs := panelConfig()
